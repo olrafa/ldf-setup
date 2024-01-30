@@ -20,12 +20,6 @@
       "type": "text",
       "required": true
     },
-    "epNumber": {
-      "type": "integer",
-      "unique": true,
-      "required": true,
-      "min": 1
-    },
     "youtubeLink": {
       "type": "string",
       "unique": true
@@ -35,15 +29,15 @@
       "required": true
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": false
+      ]
     }
   }
 }

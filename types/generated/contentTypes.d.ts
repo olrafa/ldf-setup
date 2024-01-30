@@ -818,15 +818,6 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    epNumber: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
     youtubeLink: Attribute.String & Attribute.Unique;
     date: Attribute.Date & Attribute.Required;
     cover: Attribute.Media;
