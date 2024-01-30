@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "records",
+  "info": {
+    "singularName": "record",
+    "pluralName": "records",
+    "displayName": "Record"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "record": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    }
+  }
+}

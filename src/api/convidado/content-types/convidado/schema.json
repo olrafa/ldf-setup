@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "convidados",
+  "info": {
+    "singularName": "convidado",
+    "pluralName": "convidados",
+    "displayName": "Guest",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "epNumber": {
+      "type": "integer",
+      "unique": true,
+      "required": true,
+      "min": 1
+    },
+    "youtubeLink": {
+      "type": "string",
+      "unique": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

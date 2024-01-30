@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "obras",
+  "info": {
+    "singularName": "obra",
+    "pluralName": "obras",
+    "displayName": "Reference",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "creator": {
+      "type": "string",
+      "required": false
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "book",
+        "record",
+        "film",
+        "song",
+        "video",
+        "series",
+        "print",
+        "podcast"
+      ],
+      "required": true
+    },
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "year": {
+      "type": "integer"
+    }
+  }
+}
