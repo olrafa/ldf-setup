@@ -891,6 +891,18 @@ export interface ApiObraObra extends Schema.CollectionType {
       Attribute.Required;
     cover: Attribute.Media;
     year: Attribute.Integer;
+    book: Attribute.Relation<'api::obra.obra', 'oneToOne', 'api::book.book'>;
+    record: Attribute.Relation<
+      'api::obra.obra',
+      'oneToOne',
+      'api::record.record'
+    >;
+    film: Attribute.Relation<'api::obra.obra', 'oneToOne', 'api::film.film'>;
+    references: Attribute.Relation<
+      'api::obra.obra',
+      'oneToMany',
+      'api::obra.obra'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
