@@ -51,26 +51,6 @@
     },
     "year": {
       "type": "integer"
-    },
-    "book": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::book.book"
-    },
-    "record": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::record.record"
-    },
-    "film": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::film.film"
-    },
-    "references": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::obra.obra"
     }
   }
 }
