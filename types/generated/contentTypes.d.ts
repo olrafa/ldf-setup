@@ -821,6 +821,35 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
     youtubeLink: Attribute.String & Attribute.Unique;
     date: Attribute.Date & Attribute.Required;
     cover: Attribute.Media;
+    epNumber: Attribute.Integer &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    book: Attribute.Relation<
+      'api::convidado.convidado',
+      'oneToOne',
+      'api::book.book'
+    >;
+    record: Attribute.Relation<
+      'api::convidado.convidado',
+      'oneToOne',
+      'api::record.record'
+    >;
+    film: Attribute.Relation<
+      'api::convidado.convidado',
+      'oneToOne',
+      'api::film.film'
+    >;
+    references: Attribute.Relation<
+      'api::convidado.convidado',
+      'oneToMany',
+      'api::obra.obra'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
