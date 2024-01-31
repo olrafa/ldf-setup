@@ -781,29 +781,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiBookBook extends Schema.CollectionType {
-  collectionName: 'books';
-  info: {
-    singularName: 'book';
-    pluralName: 'books';
-    displayName: 'Book';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    book: Attribute.Relation<'api::book.book', 'oneToOne', 'api::obra.obra'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiConvidadoConvidado extends Schema.CollectionType {
   collectionName: 'convidados';
   info: {
@@ -868,28 +845,6 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
   };
 }
 
-export interface ApiFilmFilm extends Schema.CollectionType {
-  collectionName: 'films';
-  info: {
-    singularName: 'film';
-    pluralName: 'films';
-    displayName: 'Film';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    film: Attribute.Relation<'api::film.film', 'oneToOne', 'api::obra.obra'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::film.film', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::film.film', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiObraObra extends Schema.CollectionType {
   collectionName: 'obras';
   info: {
@@ -921,40 +876,6 @@ export interface ApiObraObra extends Schema.CollectionType {
   };
 }
 
-export interface ApiRecordRecord extends Schema.CollectionType {
-  collectionName: 'records';
-  info: {
-    singularName: 'record';
-    pluralName: 'records';
-    displayName: 'Record';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    record: Attribute.Relation<
-      'api::record.record',
-      'oneToOne',
-      'api::obra.obra'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::record.record',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::record.record',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -973,11 +894,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::book.book': ApiBookBook;
       'api::convidado.convidado': ApiConvidadoConvidado;
-      'api::film.film': ApiFilmFilm;
       'api::obra.obra': ApiObraObra;
-      'api::record.record': ApiRecordRecord;
     }
   }
 }
