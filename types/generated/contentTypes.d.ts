@@ -820,7 +820,6 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
     description: Attribute.Text & Attribute.Required;
     youtubeLink: Attribute.String & Attribute.Unique;
     date: Attribute.Date & Attribute.Required;
-    cover: Attribute.Media;
     epNumber: Attribute.Integer &
       Attribute.Required &
       Attribute.Unique &
@@ -833,23 +832,24 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
     book: Attribute.Relation<
       'api::convidado.convidado',
       'oneToOne',
-      'api::book.book'
+      'api::obra.obra'
     >;
     record: Attribute.Relation<
       'api::convidado.convidado',
       'oneToOne',
-      'api::record.record'
+      'api::obra.obra'
     >;
     film: Attribute.Relation<
       'api::convidado.convidado',
       'oneToOne',
-      'api::film.film'
+      'api::obra.obra'
     >;
     references: Attribute.Relation<
       'api::convidado.convidado',
       'oneToMany',
       'api::obra.obra'
     >;
+    imageLink: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -28,17 +28,6 @@
       "type": "date",
       "required": true
     },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "epNumber": {
       "type": "integer",
       "required": true,
@@ -48,22 +37,25 @@
     "book": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::book.book"
+      "target": "api::obra.obra"
     },
     "record": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::record.record"
+      "target": "api::obra.obra"
     },
     "film": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::film.film"
+      "target": "api::obra.obra"
     },
     "references": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::obra.obra"
+    },
+    "imageLink": {
+      "type": "string"
     }
   }
 }
