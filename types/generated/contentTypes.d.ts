@@ -864,8 +864,8 @@ export interface ApiObraObra extends Schema.CollectionType {
       ['book', 'record', 'film', 'song', 'video', 'series', 'print', 'podcast']
     > &
       Attribute.Required;
-    cover: Attribute.Media;
     year: Attribute.Integer;
+    coverImg: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

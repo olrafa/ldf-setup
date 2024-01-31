@@ -38,19 +38,11 @@
       ],
       "required": true
     },
-    "cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "year": {
       "type": "integer"
+    },
+    "coverImg": {
+      "type": "string"
     }
   }
 }
