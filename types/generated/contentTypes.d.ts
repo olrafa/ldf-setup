@@ -845,6 +845,101 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
   };
 }
 
+export interface ApiDescriptionDescription extends Schema.SingleType {
+  collectionName: 'descriptions';
+  info: {
+    singularName: 'description';
+    pluralName: 'descriptions';
+    displayName: 'description';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    siteDescription: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::description.description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::description.description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEquipeEquipe extends Schema.CollectionType {
+  collectionName: 'equipes';
+  info: {
+    singularName: 'equipe';
+    pluralName: 'equipes';
+    displayName: 'Equipe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    imgLink: Attribute.String;
+    socials: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::equipe.equipe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::equipe.equipe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExperienceExperience extends Schema.SingleType {
+  collectionName: 'experiences';
+  info: {
+    singularName: 'experience';
+    pluralName: 'experiences';
+    displayName: 'experience';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    imgLink: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiObraObra extends Schema.CollectionType {
   collectionName: 'obras';
   info: {
@@ -895,6 +990,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::convidado.convidado': ApiConvidadoConvidado;
+      'api::description.description': ApiDescriptionDescription;
+      'api::equipe.equipe': ApiEquipeEquipe;
+      'api::experience.experience': ApiExperienceExperience;
       'api::obra.obra': ApiObraObra;
     }
   }
