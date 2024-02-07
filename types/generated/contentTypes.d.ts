@@ -850,13 +850,14 @@ export interface ApiDescriptionDescription extends Schema.SingleType {
   info: {
     singularName: 'description';
     pluralName: 'descriptions';
-    displayName: 'description';
+    displayName: 'teamDescription';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    siteDescription: Attribute.Text;
+    teamDescription: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
