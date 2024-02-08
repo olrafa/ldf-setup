@@ -797,7 +797,11 @@ export interface ApiBookBook extends Schema.CollectionType {
     description: Attribute.Text;
     article: Attribute.RichText;
     imgLink: Attribute.String;
-    author: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'>;
+    author: Attribute.Relation<
+      'api::book.book',
+      'oneToOne',
+      'api::equipe.equipe'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1015,7 +1019,11 @@ export interface ApiFilmFilm extends Schema.CollectionType {
     description: Attribute.Text;
     article: Attribute.RichText;
     imgLink: Attribute.String;
-    author: Attribute.Relation<'api::film.film', 'oneToOne', 'admin::user'>;
+    author: Attribute.Relation<
+      'api::film.film',
+      'oneToOne',
+      'api::equipe.equipe'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1135,7 +1143,11 @@ export interface ApiRecordRecord extends Schema.CollectionType {
     description: Attribute.Text;
     article: Attribute.RichText;
     imgLink: Attribute.String;
-    author: Attribute.Relation<'api::record.record', 'oneToOne', 'admin::user'>;
+    author: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'api::equipe.equipe'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
