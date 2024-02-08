@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "film_page_descriptions",
+  "info": {
+    "singularName": "film-page-description",
+    "pluralName": "film-page-descriptions",
+    "displayName": "FilmPageDescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}

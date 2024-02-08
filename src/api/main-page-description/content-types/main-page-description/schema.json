@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_page_descriptions",
+  "info": {
+    "singularName": "main-page-description",
+    "pluralName": "main-page-descriptions",
+    "displayName": "main-page-description"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "record_page_descriptions",
+  "info": {
+    "singularName": "record-page-description",
+    "pluralName": "record-page-descriptions",
+    "displayName": "RecordPageDescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}

@@ -781,6 +781,64 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBookBook extends Schema.CollectionType {
+  collectionName: 'books';
+  info: {
+    singularName: 'book';
+    pluralName: 'books';
+    displayName: 'Book';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    article: Attribute.RichText;
+    imgLink: Attribute.String;
+    author: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBookPageDescriptionBookPageDescription
+  extends Schema.SingleType {
+  collectionName: 'book_page_descriptions';
+  info: {
+    singularName: 'book-page-description';
+    pluralName: 'book-page-descriptions';
+    displayName: 'BookPageDescription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::book-page-description.book-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::book-page-description.book-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiConvidadoConvidado extends Schema.CollectionType {
   collectionName: 'convidados';
   info: {
@@ -941,6 +999,95 @@ export interface ApiExperienceExperience extends Schema.SingleType {
   };
 }
 
+export interface ApiFilmFilm extends Schema.CollectionType {
+  collectionName: 'films';
+  info: {
+    singularName: 'film';
+    pluralName: 'films';
+    displayName: 'Film';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    article: Attribute.RichText;
+    imgLink: Attribute.String;
+    author: Attribute.Relation<'api::film.film', 'oneToOne', 'admin::user'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::film.film', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::film.film', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFilmPageDescriptionFilmPageDescription
+  extends Schema.SingleType {
+  collectionName: 'film_page_descriptions';
+  info: {
+    singularName: 'film-page-description';
+    pluralName: 'film-page-descriptions';
+    displayName: 'FilmPageDescription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::film-page-description.film-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::film-page-description.film-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMainPageDescriptionMainPageDescription
+  extends Schema.SingleType {
+  collectionName: 'main_page_descriptions';
+  info: {
+    singularName: 'main-page-description';
+    pluralName: 'main-page-descriptions';
+    displayName: 'main-page-description';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-page-description.main-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-page-description.main-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiObraObra extends Schema.CollectionType {
   collectionName: 'obras';
   info: {
@@ -972,6 +1119,72 @@ export interface ApiObraObra extends Schema.CollectionType {
   };
 }
 
+export interface ApiRecordRecord extends Schema.CollectionType {
+  collectionName: 'records';
+  info: {
+    singularName: 'record';
+    pluralName: 'records';
+    displayName: 'Record';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    article: Attribute.RichText;
+    imgLink: Attribute.String;
+    author: Attribute.Relation<'api::record.record', 'oneToOne', 'admin::user'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRecordPageDescriptionRecordPageDescription
+  extends Schema.SingleType {
+  collectionName: 'record_page_descriptions';
+  info: {
+    singularName: 'record-page-description';
+    pluralName: 'record-page-descriptions';
+    displayName: 'RecordPageDescription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record-page-description.record-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record-page-description.record-page-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -990,11 +1203,18 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::book.book': ApiBookBook;
+      'api::book-page-description.book-page-description': ApiBookPageDescriptionBookPageDescription;
       'api::convidado.convidado': ApiConvidadoConvidado;
       'api::description.description': ApiDescriptionDescription;
       'api::equipe.equipe': ApiEquipeEquipe;
       'api::experience.experience': ApiExperienceExperience;
+      'api::film.film': ApiFilmFilm;
+      'api::film-page-description.film-page-description': ApiFilmPageDescriptionFilmPageDescription;
+      'api::main-page-description.main-page-description': ApiMainPageDescriptionMainPageDescription;
       'api::obra.obra': ApiObraObra;
+      'api::record.record': ApiRecordRecord;
+      'api::record-page-description.record-page-description': ApiRecordPageDescriptionRecordPageDescription;
     }
   }
 }

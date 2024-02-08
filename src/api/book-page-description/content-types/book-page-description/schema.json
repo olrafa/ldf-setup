@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "book_page_descriptions",
+  "info": {
+    "singularName": "book-page-description",
+    "pluralName": "book-page-descriptions",
+    "displayName": "BookPageDescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}
