@@ -802,6 +802,8 @@ export interface ApiBookBook extends Schema.CollectionType {
       'oneToOne',
       'api::equipe.equipe'
     >;
+    artist: Attribute.String;
+    year: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1024,6 +1026,8 @@ export interface ApiFilmFilm extends Schema.CollectionType {
       'oneToOne',
       'api::equipe.equipe'
     >;
+    artist: Attribute.String;
+    year: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1148,6 +1152,8 @@ export interface ApiRecordRecord extends Schema.CollectionType {
       'oneToOne',
       'api::equipe.equipe'
     >;
+    artist: Attribute.String;
+    year: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

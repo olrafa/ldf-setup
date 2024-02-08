@@ -28,6 +28,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::equipe.equipe"
+    },
+    "artist": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
     }
   }
 }
