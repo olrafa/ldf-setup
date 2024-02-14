@@ -12,28 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "text"
     },
     "article": {
       "type": "richtext"
     },
-    "imgLink": {
-      "type": "string"
-    },
     "author": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::equipe.equipe"
-    },
-    "artist": {
-      "type": "string"
-    },
-    "year": {
-      "type": "integer"
     },
     "reference": {
       "type": "relation",

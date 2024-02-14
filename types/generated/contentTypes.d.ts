@@ -1028,17 +1028,13 @@ export interface ApiFilmFilm extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
     description: Attribute.Text;
     article: Attribute.RichText;
-    imgLink: Attribute.String;
     author: Attribute.Relation<
       'api::film.film',
       'oneToOne',
       'api::equipe.equipe'
     >;
-    artist: Attribute.String;
-    year: Attribute.Integer;
     reference: Attribute.Relation<
       'api::film.film',
       'oneToOne',
