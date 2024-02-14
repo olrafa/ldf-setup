@@ -793,17 +793,28 @@ export interface ApiBookBook extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
     description: Attribute.Text;
     article: Attribute.RichText;
-    imgLink: Attribute.String;
     author: Attribute.Relation<
       'api::book.book',
       'oneToOne',
       'api::equipe.equipe'
     >;
-    artist: Attribute.String;
-    year: Attribute.Integer;
+    reference: Attribute.Relation<
+      'api::book.book',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneBook: Attribute.Relation<'api::book.book', 'oneToOne', 'api::obra.obra'>;
+    oneRecord: Attribute.Relation<
+      'api::book.book',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneFilm: Attribute.Relation<'api::book.book', 'oneToOne', 'api::obra.obra'>;
+    oneBookComment: Attribute.Text;
+    oneRecordComment: Attribute.Text;
+    oneFilmComment: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1028,6 +1039,21 @@ export interface ApiFilmFilm extends Schema.CollectionType {
     >;
     artist: Attribute.String;
     year: Attribute.Integer;
+    reference: Attribute.Relation<
+      'api::film.film',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneBook: Attribute.Relation<'api::film.film', 'oneToOne', 'api::obra.obra'>;
+    oneRecord: Attribute.Relation<
+      'api::film.film',
+      'oneToOne',
+      'api::record.record'
+    >;
+    oneFilm: Attribute.Relation<'api::film.film', 'oneToOne', 'api::obra.obra'>;
+    oneBookComment: Attribute.Text;
+    oneRecordComment: Attribute.Text;
+    oneFilmComment: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1143,17 +1169,36 @@ export interface ApiRecordRecord extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
     description: Attribute.Text;
     article: Attribute.RichText;
-    imgLink: Attribute.String;
     author: Attribute.Relation<
       'api::record.record',
       'oneToOne',
       'api::equipe.equipe'
     >;
-    artist: Attribute.String;
-    year: Attribute.Integer;
+    reference: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneBook: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneRecord: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneFilm: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'api::obra.obra'
+    >;
+    oneFilmComment: Attribute.Text;
+    oneRecordComment: Attribute.Text;
+    oneBookComment: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

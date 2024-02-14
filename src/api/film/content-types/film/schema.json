@@ -34,6 +34,35 @@
     },
     "year": {
       "type": "integer"
+    },
+    "reference": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    },
+    "oneBook": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    },
+    "oneRecord": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::record.record"
+    },
+    "oneFilm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    },
+    "oneBookComment": {
+      "type": "text"
+    },
+    "oneRecordComment": {
+      "type": "text"
+    },
+    "oneFilmComment": {
+      "type": "text"
     }
   }
 }

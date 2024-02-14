@@ -12,28 +12,45 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "description": {
       "type": "text"
     },
     "article": {
       "type": "richtext"
     },
-    "imgLink": {
-      "type": "string"
-    },
     "author": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::equipe.equipe"
     },
-    "artist": {
-      "type": "string"
+    "reference": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
     },
-    "year": {
-      "type": "integer"
+    "oneBook": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    },
+    "oneRecord": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    },
+    "oneFilm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::obra.obra"
+    },
+    "oneBookComment": {
+      "type": "text"
+    },
+    "oneRecordComment": {
+      "type": "text"
+    },
+    "oneFilmComment": {
+      "type": "text"
     }
   }
 }
