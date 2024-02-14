@@ -48,7 +48,7 @@
     "oneRecord": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::record.record"
+      "target": "api::obra.obra"
     },
     "oneFilm": {
       "type": "relation",

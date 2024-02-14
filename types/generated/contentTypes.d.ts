@@ -1048,7 +1048,7 @@ export interface ApiFilmFilm extends Schema.CollectionType {
     oneRecord: Attribute.Relation<
       'api::film.film',
       'oneToOne',
-      'api::record.record'
+      'api::obra.obra'
     >;
     oneFilm: Attribute.Relation<'api::film.film', 'oneToOne', 'api::obra.obra'>;
     oneBookComment: Attribute.Text;
