@@ -4,7 +4,8 @@
   "info": {
     "singularName": "experience",
     "pluralName": "experiences",
-    "displayName": "experience"
+    "displayName": "experience",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,11 +15,11 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "imgLink": {
       "type": "string"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }

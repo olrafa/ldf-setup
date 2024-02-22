@@ -990,14 +990,15 @@ export interface ApiExperienceExperience extends Schema.SingleType {
     singularName: 'experience';
     pluralName: 'experiences';
     displayName: 'experience';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
-    description: Attribute.Text;
     imgLink: Attribute.String;
+    description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
