@@ -902,6 +902,11 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
       'api::obra.obra'
     >;
     imageLink: Attribute.String;
+    extras: Attribute.Relation<
+      'api::convidado.convidado',
+      'oneToMany',
+      'api::extra.extra'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1010,6 +1015,37 @@ export interface ApiExperienceExperience extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExtraExtra extends Schema.CollectionType {
+  collectionName: 'extras';
+  info: {
+    singularName: 'extra';
+    pluralName: 'extras';
+    displayName: 'Extra';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::extra.extra',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::extra.extra',
       'oneToOne',
       'admin::user'
     > &
@@ -1269,6 +1305,7 @@ declare module '@strapi/types' {
       'api::description.description': ApiDescriptionDescription;
       'api::equipe.equipe': ApiEquipeEquipe;
       'api::experience.experience': ApiExperienceExperience;
+      'api::extra.extra': ApiExtraExtra;
       'api::film.film': ApiFilmFilm;
       'api::film-page-description.film-page-description': ApiFilmPageDescriptionFilmPageDescription;
       'api::main-page-description.main-page-description': ApiMainPageDescriptionMainPageDescription;
