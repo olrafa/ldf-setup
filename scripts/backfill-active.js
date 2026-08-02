@@ -4,11 +4,16 @@
  * One-off backfill for the `active` field added to equipe (team members).
  *
  * Strapi's schema-level `"default": true` only applies to new entries created
- * through the API/admin — it does not retroactively set existing rows, which
- * come out of the migration as `active: null`. Since the frontend's team page
- * is meant to show active members by default, every pre-existing entry needs
- * `active` explicitly set to `true`, except the ones we intentionally mark
- * inactive (see INACTIVE_NAMES below).
+ * through the API/admin — the migration that adds the column does not
+ * necessarily leave existing rows consistent across DB engines. On SQLite,
+ * existing rows come out `active: null`; on Postgres (confirmed against
+ * production), `ALTER TABLE ... ADD COLUMN active boolean DEFAULT true`
+ * backfills existing rows to `true` immediately. So this script cannot assume
+ * "already non-null" means "already correct" — it explicitly enforces:
+ *   - every name in INACTIVE_NAMES -> active = false, always, even if the
+ *     migration (or a prior run) already set it to true
+ *   - everyone else -> active = true, but only when it's still null/undefined,
+ *     so an admin's own manual choice elsewhere is never silently overwritten
  *
  * Run locally against .tmp/data.db first:
  *   npm run backfill:active
@@ -16,9 +21,9 @@
  * Then, against production, run this *inside* the Fly environment:
  *   fly ssh console -a strapi-fly-1ldf -C "node scripts/backfill-active.js"
  *
- * Safe to re-run: entries that already have `active` set (true or false) are
- * left untouched, so INACTIVE_NAMES only takes effect on an entry's first run
- * through this script. To flip someone's status later, use the admin UI.
+ * Safe to re-run: once an entry's active value matches what's described
+ * above, later runs leave it untouched. To flip someone's status later, use
+ * the admin UI, not this script.
  */
 
 const createStrapi = require('@strapi/strapi');
@@ -41,10 +46,16 @@ async function main() {
 
     for (const entry of entries) {
       seenNames.add(entry.name);
-      if (entry.active !== null && entry.active !== undefined) continue; // already set
-
       const isInactive = INACTIVE_NAMES.includes(entry.name);
-      await strapi.entityService.update(uid, entry.id, { data: { active: !isInactive } });
+      const desired = !isInactive;
+
+      if (isInactive) {
+        if (entry.active === false) continue; // already correct
+      } else if (entry.active !== null && entry.active !== undefined) {
+        continue; // leave any admin-set value alone, only fill in unset ones
+      }
+
+      await strapi.entityService.update(uid, entry.id, { data: { active: desired } });
 
       if (isInactive) {
         markedInactive += 1;
