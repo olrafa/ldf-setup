@@ -793,6 +793,8 @@ export interface ApiBookBook extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::book.book', 'title'> & Attribute.Required;
     description: Attribute.Text;
     article: Attribute.RichText;
     author: Attribute.Relation<
@@ -869,6 +871,8 @@ export interface ApiConvidadoConvidado extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::convidado.convidado', 'name'> &
+      Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     youtubeLink: Attribute.String & Attribute.Unique;
     date: Attribute.Date & Attribute.Required;
@@ -1065,6 +1069,8 @@ export interface ApiFilmFilm extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::film.film', 'title'> & Attribute.Required;
     description: Attribute.Text;
     article: Attribute.RichText;
     author: Attribute.Relation<
@@ -1202,6 +1208,8 @@ export interface ApiRecordRecord extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::record.record', 'title'> & Attribute.Required;
     description: Attribute.Text;
     article: Attribute.RichText;
     author: Attribute.Relation<

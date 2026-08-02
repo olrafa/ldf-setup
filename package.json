@@ -7,7 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "backfill:slugs": "node scripts/backfill-slugs.js"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "4.19.0",
