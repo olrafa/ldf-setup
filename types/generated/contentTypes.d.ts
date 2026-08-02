@@ -972,6 +972,7 @@ export interface ApiEquipeEquipe extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
     description: Attribute.Text;
     imgLink: Attribute.String;
     socials: Attribute.String;
