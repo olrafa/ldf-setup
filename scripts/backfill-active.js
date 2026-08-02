@@ -23,7 +23,7 @@
 
 const createStrapi = require('@strapi/strapi');
 
-const INACTIVE_NAMES = ['Julia Rugai'];
+const INACTIVE_NAMES = ['Júlia Rugai'];
 
 async function main() {
   const strapi = await createStrapi().load();
